@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 20:12:43 by patrisor          #+#    #+#             */
-/*   Updated: 2019/04/29 03:48:39 by ajulanov         ###   ########.fr       */
+/*   Updated: 2019/04/29 04:13:24 by ajulanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,15 @@ t_uint16		get_mino(char *buf)
 	count = 0;
 	while (buf[i])
 	{
-		if (buf[i] == '#')
+		if (buf[i] == '#' && ++count)
+			mino |= (1 << (15 - (i - (i/5))));
+		else if (buf[i] != '.' && buf[i] != '\n')
+			return (0);
+		else if (buf[i] == '\n' && ((i + 1) % 5 != 0))
+			return (0);
+		++i;
 	}
+	return ((count != 4 || i != 20) ? 0 : validate(mino));
 }
 
 //create a linked list of the mino from the file, allocate memory for the prev_read characters.
@@ -68,7 +75,7 @@ t_list			*create_list(int fd, char *buf, int *prev_read)
 {
 	t_list		*head; //read list
 	t_list		*cur; //current list
-	int			count; //to match the minos with the letters A-Z, 26 letters
+	int			count; //???to mark the minos with the letters A-Z, 26 letters
 	t_uint16	bits;
 	int 		bytes;
 
@@ -77,7 +84,7 @@ t_list			*create_list(int fd, char *buf, int *prev_read)
 		return (0);
 	cur = head; // cope head to the current list
 	count = 0;
-	// while we have read minos and letters
+	// check that the file does not contain > 26 or less that 1 mino;
 	while (count < 26 && (bytes = read(fd, buf, MINO_SIZE)) != 0)
 	{
 		*prev_read = bytes; // how many bytes we have read??? 20?
@@ -87,11 +94,15 @@ t_list			*create_list(int fd, char *buf, int *prev_read)
 		bits = get_mino(buf);
 		//link current list to the content struct; 
 		cur->content = new_mino('A' + count, bits);
+		// error check
 		if (!cur->content || !bits)
 			return (0);
+		// 
 		++count;
 		cur->content_size = sizeof(cur->content);
+		//create new current list
 		cur->next = ft_lstnew( 0, 0);
+		// current list that contain copy of the head list and marked minos
 		cur = cur->next;
 	}
 	return (head);
