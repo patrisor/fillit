@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 20:14:54 by patrisor          #+#    #+#             */
-/*   Updated: 2019/04/28 20:15:36 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/04/28 23:12:10 by ajulanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,29 @@
 # include <string.h>
 # include <stdint.h>
 
-typedef struct s_etris	t_etris;
+#define MINO_SIZE 21
+#define R(i, cur) ((BITS(cur) & (0xF000 >> (i * 4))) << (i * 4))
+#define BITS(cur) (((t_mino *)(cur->content))->mino)
+#define CHAR(cur) (((t_mino *)(cur->content))->c)
+#define X(cur) (((t_mino *)(cur->content))->x)
+#define Y(cur) (((t_mino *)(cur->content))->y)
+#define LAST(cur) (((t_mino *)(cur->content))->last)
+#define CORD(cur, size) ((Y(cur) * size) + X(cur))
+#define XOROR(a,b) ((a ^ b) == (a | b))
 
-struct				s_etris
+typedef struct	s_mino
 {
-	uint64_t			value;
-	t_etris				*last;
-	unsigned char		id;
-	unsigned char		x;
-	unsigned char		y;
-	unsigned char		width;
-	unsigned char		height;
-};
+	char			c;
+	t_uint64		value;
+	t_uint16		tetrimino;
+	t_uint8			x;
+	t_uint8			y;
+	int				last	;
+} 						t_mino;
 
-int					read_tetri(const int fd, t_etris *tetris);
-int					solve(t_etris *tetris, const int count, uint16_t *map);
-int					check_piece(const t_etris *tetris, uint16_t *map);
-void				toggle_piece(const t_etris *tetris, uint16_t *map);
+void				print_map(t_list *list, int size);
+void				place_mino(t_uint16 map[], t_list *mino);
+int					find_spot(t_uint16 map[], int size, t_list * mino, int row);
+void				map_main(t_list *head);
 
 #endif
