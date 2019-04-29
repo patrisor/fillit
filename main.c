@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 20:12:43 by patrisor          #+#    #+#             */
-/*   Updated: 2019/04/29 02:07:26 by ajulanov         ###   ########.fr       */
+/*   Updated: 2019/04/29 03:48:39 by ajulanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,38 @@ t_uint16		get_mino(char *buf)
 	}
 }
 
+//create a linked list of the mino from the file, allocate memory for the prev_read characters.
 t_list			*create_list(int fd, char *buf, int *prev_read)
 {
-	t_list		*head;
-	t_list		*cur;
-	int			count;
+	t_list		*head; //read list
+	t_list		*cur; //current list
+	int			count; //to match the minos with the letters A-Z, 26 letters
 	t_uint16	bits;
 	int 		bytes;
 
-	head = ft_lstnew(0, 0);
-	if (!head)
+	head = ft_lstnew(0, 0); 
+	if (!head) // 
 		return (0);
-	cur = head;
+	cur = head; // cope head to the current list
 	count = 0;
-while
+	// while we have read minos and letters
+	while (count < 26 && (bytes = read(fd, buf, MINO_SIZE)) != 0)
+	{
+		*prev_read = bytes; // how many bytes we have read??? 20?
+		// if 21 char from the buf is equal '\n' than the line ads '\0' at the end of the string, not an '\n'; we terminate the string
+		buf[MINO_SIZE - 1] = (buf[20] == '\n' ? '\0' : 0);
+		// convert minos in bits
+		bits = get_mino(buf);
+		//link current list to the content struct; 
+		cur->content = new_mino('A' + count, bits);
+		if (!cur->content || !bits)
+			return (0);
+		++count;
+		cur->content_size = sizeof(cur->content);
+		cur->next = ft_lstnew( 0, 0);
+		cur = cur->next;
+	}
+	return (head);
 }
 
 int				main(int ac, char **av)
