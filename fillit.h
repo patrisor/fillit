@@ -6,33 +6,33 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 20:14:54 by patrisor          #+#    #+#             */
-/*   Updated: 2019/04/28 20:15:36 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/04/29 23:54:29 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# define MAX_TETRI 26
+# define MINO_SIZE 21
+# define USAGE "usage: ./fillit <file>" 
+# include "libft/includes/libft.h"
+# include <fcntl.h>
 # include <string.h>
 # include <stdint.h>
 
-typedef struct s_etris	t_etris;
-
-struct				s_etris
+typedef struct		s_mino
 {
-	uint64_t			value;
-	t_etris				*last;
-	unsigned char		id;
-	unsigned char		x;
-	unsigned char		y;
-	unsigned char		width;
-	unsigned char		height;
-};
+	char			c;
+	uint16_t		mino;
+	uint8_t			x;
+	uint8_t			y;
+	int				last;
+}					t_mino;
 
-int					read_tetri(const int fd, t_etris *tetris);
-int					solve(t_etris *tetris, const int count, uint16_t *map);
-int					check_piece(const t_etris *tetris, uint16_t *map);
-void				toggle_piece(const t_etris *tetris, uint16_t *map);
+void				print_map(t_list *list, int size);
+void				place_mino(uint16_t map[], t_list *mino);
+int					find_spot(uint16_t map[], int size, t_list *mino, int row);
+int					fill_map(uint16_t map[], int size, t_list *head);
+void				map_main(t_list *head);
 
 #endif
