@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 21:45:10 by patrisor          #+#    #+#             */
-/*   Updated: 2019/04/30 23:02:17 by patrisor         ###   ########.fr       */
+/*   Created: 2019/05/01 03:18:36 by patrisor          #+#    #+#             */
+/*   Updated: 2019/05/01 03:21:05 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "fillit.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+/*
+void	map_main(t_list *head)
 {
-	size_t	bytes;
 
-	if(b == NULL)
-		return NULL;
-	bytes = 0;
-	while (bytes < len)
-	{
-		((char *)b)[bytes] = (unsigned char)c;
-		bytes++;
-	}
-	return (b);
 }
+*/

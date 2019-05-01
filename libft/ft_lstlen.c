@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 21:45:10 by patrisor          #+#    #+#             */
-/*   Updated: 2019/04/30 23:02:17 by patrisor         ###   ########.fr       */
+/*   Created: 2019/05/01 03:24:02 by patrisor          #+#    #+#             */
+/*   Updated: 2019/05/01 03:24:18 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int		ft_lstlen(t_list *head)
 {
-	size_t	bytes;
+	int	count;
 
-	if(b == NULL)
-		return NULL;
-	bytes = 0;
-	while (bytes < len)
+	count = 0;
+	while (head && head->content)
 	{
-		((char *)b)[bytes] = (unsigned char)c;
-		bytes++;
+		count++;
+		head = head->next;
 	}
-	return (b);
+	return (count);
 }

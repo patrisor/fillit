@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 20:14:54 by patrisor          #+#    #+#             */
-/*   Updated: 2019/04/30 02:46:05 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/01 02:35:25 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define MINO_SIZE 21
 # define USAGE "usage: ./fillit <file>" 
+# define ERROR "error"
 # include "libft/includes/libft.h"
 # include <fcntl.h>
 # include <string.h>

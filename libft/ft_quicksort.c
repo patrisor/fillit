@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   qs.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/25 21:45:10 by patrisor          #+#    #+#             */
-/*   Updated: 2019/04/30 23:02:17 by patrisor         ###   ########.fr       */
+/*   Created: 2019/04/29 00:42:40 by patrisor          #+#    #+#             */
+/*   Updated: 2019/04/30 14:07:54 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
-
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_quicksort(int *array, int left, int right)
 {
-	size_t	bytes;
+	int		tmp;
 
-	if(b == NULL)
-		return NULL;
-	bytes = 0;
-	while (bytes < len)
+	if(left >= right)
+		return;
+	int i = left;
+	int j = right;
+	int pivot = array[i];
+	while(1)
 	{
-		((char *)b)[bytes] = (unsigned char)c;
-		bytes++;
+		while(array[i] < pivot)
+			i++;
+		while(pivot < array[j])
+			j--;
+		if(i >= j)
+			break;
+		tmp = array[i];
+		array[i] = array[j]; 
+		array[j] = tmp;
+		i++; 
+		j--;
 	}
-	return (b);
+	ft_quicksort(array, left, i - 1);
+	ft_quicksort(array, j + 1, right);
 }

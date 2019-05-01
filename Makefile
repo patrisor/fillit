@@ -6,13 +6,13 @@
 #    By: patrisor <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/15 01:41:23 by patrisor          #+#    #+#              #
-#    Updated: 2019/04/28 20:13:07 by patrisor         ###   ########.fr        #
+#    Updated: 2019/05/01 03:16:38 by patrisor         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-SRCS = main.c  
+SRCS = main.c fillit.c 
 
 OBJ = *.o
 

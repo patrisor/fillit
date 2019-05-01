@@ -6,7 +6,7 @@
 #    By: patrisor <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/22 07:54:53 by patrisor          #+#    #+#              #
-#    Updated: 2019/04/17 23:08:13 by patrisor         ###   ########.fr        #
+#    Updated: 2019/05/01 03:25:22 by patrisor         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,13 @@ CC = gcc
 FLAGS = -Werror -Wall -Wextra
 
 SRCS = ft_atoi.c \
+	   ft_add.c \
 	   ft_bzero.c \
 	   ft_countwords.c \
 	   ft_isalnum.c \
 	   ft_isalpha.c \
 	   ft_isdigit.c \
+	   ft_isOdd.c \
 	   ft_isupper.c \
 	   ft_islower.c \
 	   ft_isascii.c \
@@ -32,6 +34,7 @@ SRCS = ft_atoi.c \
 	   ft_lstiter.c \
 	   ft_lstmap.c \
 	   ft_lstnew.c \
+	   ft_lstlen.c \
 	   ft_memdel.c \
 	   ft_memalloc.c \
 	   ft_memccpy.c \
@@ -49,6 +52,7 @@ SRCS = ft_atoi.c \
 	   ft_putstr_fd.c \
 	   ft_putnbr.c \
 	   ft_putnbr_fd.c \
+	   ft_quicksort.c \
 	   ft_sqrt.c \
 	   ft_strcat.c \
 	   ft_strlen.c \
