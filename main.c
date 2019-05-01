@@ -6,7 +6,7 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 20:12:43 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/01 03:37:12 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/01 03:54:16 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 #include <inttypes.h>
 
 /*
- *
+ * Generates a new tetromino piece by filling parameters such as char and the mapping of bits,
+ * and stores it into node->content.
  */
 t_mino		*new_mino(char ch, uint16_t bits)
 {
