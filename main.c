@@ -6,16 +6,11 @@
 /*   By: patrisor <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 20:12:43 by patrisor          #+#    #+#             */
-/*   Updated: 2019/05/01 03:54:16 by patrisor         ###   ########.fr       */
+/*   Updated: 2019/05/03 04:25:25 by patrisor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <fcntl.h>
-
-// TODO: DELETE
-#include <stdio.h>
-#include <inttypes.h>
 
 /*
  * Generates a new tetromino piece by filling parameters such as char and the mapping of bits,
@@ -186,6 +181,6 @@ int		main(int argc, char **argv)
 
 	// create a map of the linked list of the minos; map[16]; from the smallest map to the biggesst one == 16
 	// also map_main check if there is no solution - returns an error
-	// map_main(head);
+	map_main(head);
 	return 0;
 }

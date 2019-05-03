@@ -6,7 +6,7 @@
 #    By: patrisor <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/22 07:54:53 by patrisor          #+#    #+#              #
-#    Updated: 2019/05/01 03:25:22 by patrisor         ###   ########.fr        #
+#    Updated: 2019/05/03 05:47:33 by patrisor         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS = ft_atoi.c \
 	   ft_isprint.c \
 	   ft_itoa.c \
 	   ft_strnew.c \
+	   ft_strinit.c \
 	   ft_lstadd.c \
 	   ft_lstdel.c \
 	   ft_lstdelone.c \
@@ -43,6 +44,7 @@ SRCS = ft_atoi.c \
 	   ft_memcpy.c \
 	   ft_memmove.c \
 	   ft_memset.c \
+	   ft_nmemset.c \
 	   ft_pow.c \
 	   ft_putchar.c \
 	   ft_putchar_fd.c \
