@@ -7,9 +7,7 @@ The goal of this assignment is to find the smallest dimensional square by fillin
 	cd fillit
 	sh delete.sh
 	./fillit *path-to-fillit-file*
-	
-	
-	**NOTE:**
+### Desired Output:
 	cat testfile
 	#...
 	#...
@@ -21,7 +19,7 @@ The goal of this assignment is to find the smallest dimensional square by fillin
 	....
 	....
 
-	**Desired Output:**
+	./fillit testfile
 	ABB.
 	ABB.
 	A...
