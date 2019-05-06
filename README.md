@@ -1,7 +1,7 @@
 # fillit @ 42 Silicon Valley
 Can you feel it?
 ### What is it?
-The goal of this assignment is to find the smallest dimensional square by filling a particular set of tetrominoes in the shortest amount of time. Our implementation involved using bits to represent our tetromino pieces, and to move the pieces, we used bit masking and bitwise operations. We recursively backtracked to find the most optimal solutionby continuously iterating through row positioning and identifying the piece's current state at that index.
+The goal of this assignment is to find the smallest dimensional square by filling a particular set of tetrominoes in the shortest amount of time. Our implementation involved using bits to represent our tetromino pieces, and to move the pieces, we used bit masking and bitwise operations. We recursively backtracked to find the most optimal solution by continuously iterating through row positioning and identifying the piece's current state at that index.
 ### How to use it?
 	git clone https://github.com/patrisor/fillit.git
 	cd fillit
